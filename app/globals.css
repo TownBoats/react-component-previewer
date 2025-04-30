@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* 防止页面滚动导致的布局问题 */
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+.editor-container {
+  height: calc(100vh - 64px);
+  overflow: hidden; /* 防止容器溢出 */
+}
+
+.monaco-editor {
+  padding-top: 8px;
+}
+
+.preview-error {
+  color: #e53e3e;
+  padding: 1rem;
+  border: 1px solid #e53e3e;
+  border-radius: 0.375rem;
+  background-color: #fff5f5;
+  margin: 1rem;
+  white-space: pre-wrap;
+}
+
+.resizer {
+  width: 4px;
+  cursor: col-resize;
+  background-color: #e2e8f0;
+  transition: background-color 0.2s;
+  flex-shrink: 0; /* 防止分隔条被压缩 */
+}
+
+.resizer:hover {
+  background-color: #cbd5e0;
+}
+
+.preview-container {
+  padding: 1rem;
+  overflow: auto;
+  height: 100%;
+}
+
+.preview-content {
+  min-height: 100px; /* 确保预览内容有最小高度 */
+}
+
+/* 确保编辑器内容可以粘贴 */
+.monaco-editor .monaco-editor-background,
+.monaco-editor .inputarea.ime-input {
+  pointer-events: auto !important;
+}
+
+/* 确保编辑器获得焦点时有明显的视觉提示 */
+.monaco-editor.focused {
+  outline: none;
+}
+
+/* 添加一个按钮样式，用于可能的工具栏按钮 */
+.editor-button {
+  padding: 0.25rem 0.5rem;
+  background-color: #4a5568;
+  color: white;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.editor-button:hover {
+  background-color: #2d3748;
+}
+
+/* 允许粘贴 */
+.monaco-editor .monaco-editor-background {
+  pointer-events: auto !important;
+}
+
+.monaco-editor .inputarea {
+  pointer-events: auto !important;
+  opacity: 1 !important;
+  z-index: 10 !important;
+}
+
+/* 确保编辑器可以接收粘贴事件 */
+.monaco-editor {
+  user-select: text !important;
+}
+
+/* 确保编辑器可以接收粘贴事件 */
+.monaco-editor .view-lines {
+  user-select: text !important;
+}
