@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { Code, FileCode, Info, Globe } from "lucide-react"
+import { Code, FileCode, Info, Globe, Github, Heart } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 
 export default function Header() {
@@ -21,6 +21,27 @@ export default function Header() {
       </div>
 
       <div className="flex items-center space-x-4">
+        <div className="flex items-center text-sm">
+          <Heart className="h-4 w-4 mr-1" />
+          <span>TownBoats</span>
+        </div>
+        <a 
+          href="https://github.com/TownBoats/react-component-previewer" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center text-sm hover:text-blue-300 transition-colors"
+        >
+          <Github className="h-4 w-4 mr-1" />
+          <span>GitHub</span>
+        </a>
+        <a 
+          href="http://xhslink.com/L6XDeab" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="flex items-center text-sm hover:text-blue-300 transition-colors"
+        >
+          <span>小红书</span>
+        </a>
         <button
           onClick={() => setShowInfo(!showInfo)}
           className="flex items-center text-sm hover:text-blue-300 transition-colors"
